@@ -1,12 +1,9 @@
-import os
+import streamlit as st
 from groq import Groq
-from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
+# Create Groq client using Streamlit Secrets
 client = Groq(
-    api_key=os.getenv("GROQ_API_KEY")
+    api_key=st.secrets["GROQ_API_KEY"]
 )
 
 def get_ai_response(user_message):
